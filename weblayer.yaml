@@ -1,7 +1,6 @@
 ---
 - name: Ensure apache is installed and started
   hosts: web
-  user: root
   become: yes
 
   tasks:
