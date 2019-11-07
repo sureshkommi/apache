@@ -2,14 +2,18 @@
   hosts: web
   become: yes
   tasks:
-  - name: stop the apache
-    service :
+  - name: apache install apache
+    yum :
       name: httpd
-      state: stopped
+      state: present
   - name: zip file
     copy:
       src: weblayer-build.zip
       dest: /tmp
+  - name: install unzip
+    yum :
+      name: unzip
+      state: present
   - name: unzip the file
     unarchive:
       src: /tmp/weblayer-build.zip
