@@ -8,11 +8,11 @@
       state: stopped
   - name: zip file
     copy:
-      src: weblayer-$buildnumber.zip
+      src: weblayer-build.zip
       dest: /tmp
   - name: unzip the file
     unarchive:
-      src: /tmp/weblayer-$buildnumber.zip
+      src: /tmp/weblayer-build.zip
       dest: /var/www/html
       remote_src: yes
   - name: start httpd
