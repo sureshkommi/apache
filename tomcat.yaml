@@ -16,9 +16,9 @@
       group: tomcat
       mode:   0775
       state: directory
-  - name: download tomcar
+  - name: download and omcar
     get_url:
-      url: http://apachemirror.wuchna.com/tomcat/tomcat-9/v9.0.26/bin/apache-tomcat-9.0.26.tar.gz
+      url: http://mirrors.estointernet.in/apache/tomcat/tomcat-9/v9.0.27/bin/apache-tomcat-9.0.27.tar.gz
       dest: /tomcat
     become_user: tomcat 
 
