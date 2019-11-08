@@ -10,7 +10,7 @@
       state: present
   - name: create user
     user:
-      name: "{{tomcat_dir}}"
+      name: tomcat
   - name: create a dirctory
     file:
       path: /opt/"{{tomcat_dir}}"
