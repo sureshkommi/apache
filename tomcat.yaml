@@ -21,7 +21,7 @@
   - name: download tomcar
     get_url:
       url: http://apachemirror.wuchna.com/tomcat/tomcat-9/v9.0.26/bin/apache-tomcat-9.0.26.tar.gz
-      dest: "{{tomcat_dir}}"
+      dest: /opt/"{{tomcat_dir}}"
       mode: '0440'
   - name: extrace tomcat
     unarchive:
