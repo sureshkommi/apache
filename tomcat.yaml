@@ -1,8 +1,6 @@
 - name: deploy package
   hosts: dev
   become: yes
-  vars :
-    - tomcat_dir: /tomcat
   tasks:
   - name: install java
     yum:
@@ -13,7 +11,7 @@
       name: tomcat
   - name: create a dirctory
     file:
-      path: /opt/"{{tomcat_dir}}"
+      path: /tomcat
       owner: tomcat
       group: tomcat
       mode:   0775
@@ -21,15 +19,16 @@
   - name: download tomcar
     get_url:
       url: http://apachemirror.wuchna.com/tomcat/tomcat-9/v9.0.26/bin/apache-tomcat-9.0.26.tar.gz
-      dest: /opt/"{{tomcat_dir}}"
-    become_user: tomcat  
+      dest: /tomcat
+    become_user: tomcat 
+
   - name: extrace tomcat
     unarchive:
-      src: /opt/"{{tomcat_dir}}"
-      dest: /opt/"{{tomcat_dir}}"
+      src: /tomcat
+      dest: /tomcat
       remote_src: yes
   - name: start the tomacr apache
     shell: ./startup.sh
     args:
-      chdir: /opt/"{{tomcat-dir}}"/apache-tomcat-9.0.26/bin    
+      chdir: /tomcat/apache-tomcat-9.0.26/bin    
      
