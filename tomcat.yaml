@@ -4,31 +4,32 @@
   vars :
     - tomcat_dir: /tomcat
   tasks:
-    - name: install java
-      yum:
-        name: java
-        state: present
-    - name: create user
-      user:
-        name: "{{tomcat_dir}}"
-    - name: create a dirctory
-      file:
-        path: /opt/"{{tomcat_dir}}"
-        owner: tomcat
-        group: tomcat
-        mode:   0775
-        state: directory
-    - name: download tomcar
-      get_url:
-        url: http://apachemirror.wuchna.com/tomcat/tomcat-9/v9.0.26/bin/apache-tomcat-9.0.26.tar.gz
-        dest: "{{tomcat_dir}}"
-        mode: '0440'
-    - name:extrace tomcat
-        src: /opt/"{{tomcat_dir}}"
-        dest: /opt/"{{tomcat_dir}}"
-        remote_src: yes
-    - name: start the tomacr apache
-      shell: ./startup.shell
-      args:
-        chdir: /opt/"{{tomcat-dir}}"/apache-tomcat-9.0.26/bin    
+  - name: install java
+    yum:
+      name: java
+      state: present
+  - name: create user
+    user:
+      name: "{{tomcat_dir}}"
+  - name: create a dirctory
+    file:
+      path: /opt/"{{tomcat_dir}}"
+      owner: tomcat
+      group: tomcat
+      mode:   0775
+      state: directory
+  - name: download tomcar
+    get_url:
+      url: http://apachemirror.wuchna.com/tomcat/tomcat-9/v9.0.26/bin/apache-tomcat-9.0.26.tar.gz
+      dest: "{{tomcat_dir}}"
+      mode: '0440'
+  - name: extrace tomcat
+    unarchive:
+      src: /opt/"{{tomcat_dir}}"
+      dest: /opt/"{{tomcat_dir}}"
+      remote_src: yes
+  - name: start the tomacr apache
+    shell: ./startup.sh
+    args:
+      chdir: /opt/"{{tomcat-dir}}"/apache-tomcat-9.0.26/bin    
      
