@@ -26,7 +26,7 @@
     unarchive:
       src: /tomcat
       dest: /tomcat
-      remote_src: tomcat
+      remote_src: yes
   - name: start the tomacr apache
     shell: ./startup.sh
     args:
