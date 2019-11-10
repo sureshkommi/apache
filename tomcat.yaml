@@ -21,16 +21,15 @@
       url: http://mirrors.estointernet.in/apache/tomcat/tomcat-9/v9.0.27/bin/apache-tomcat-9.0.27.tar.gz
       dest: /tomcat
     become_user: tomcat 
-  - name: install unzip file
-    yum:
-      name: gtar
-      state: present
 
   - name: extrace tomcat
     unarchive:
       src: /tomcat
       dest: /tomcat
       remote_src: yes
+      list_files: "yes"
+    register: list_files
+    when: artifact_extension in ["tar.gz", "tgz", "tar", "zip"]
   - name: start the tomacr apache
     shell: ./startup.sh
     args:
