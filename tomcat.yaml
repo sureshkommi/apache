@@ -23,7 +23,7 @@
     become_user: tomcat
   - name: instal unzip
     yum:
-      name: gunzip
+      name: gzip -d
       state: present
 
   - name: extrace tomcat
