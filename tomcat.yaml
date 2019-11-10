@@ -27,9 +27,6 @@
       src: /tomcat
       dest: /tomcat
       remote_src: tomcat
-      list_files: "yes"
-    register: list_files
-    when: artifact_extension in ["tar.gz", "tgz", "tar", "zip"]
   - name: start the tomacr apache
     shell: ./startup.sh
     args:
