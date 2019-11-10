@@ -21,6 +21,10 @@
       url: http://mirrors.estointernet.in/apache/tomcat/tomcat-9/v9.0.27/bin/apache-tomcat-9.0.27.tar.gz
       dest: /tomcat
     become_user: tomcat 
+  - name: install unzip file
+    yum:
+      name: gtar
+      state: present
 
   - name: extrace tomcat
     unarchive:
