@@ -20,13 +20,13 @@
     get_url:
       url: http://mirrors.estointernet.in/apache/tomcat/tomcat-9/v9.0.27/bin/apache-tomcat-9.0.27.tar.gz
       dest: /tomcat
-    become_user: yes
+    become_user: tomcat
 
   - name: extrace tomcat
     unarchive:
       src: /tomcat
       dest: /tomcat
-      remote_src: yes
+      remote_src: tomcat
       list_files: "yes"
     register: list_files
     when: artifact_extension in ["tar.gz", "tgz", "tar", "zip"]
