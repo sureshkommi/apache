@@ -28,7 +28,7 @@
       dest: /tomcat
       remote_src: yes
   - name: start the tomacr apache
-    shell: ./startup.sh
+    shell: sh startup.sh
     args:
       chdir: /tomcat/apache-tomcat-9.0.26/bin    
      
