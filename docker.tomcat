@@ -1,9 +1,9 @@
 FORM redhat:7
 RUN yum install docker -y
-RUN systemctl start docker
 RUN yum install java -y
 RUN mkdir /opt/tomcat
 RUN http://mirrors.estointernet.in/apache/tomcat/tomcat-9/v9.0.27/bin/apache-tomcat-9.0.27.tar.gz
 RUN cd /opt/tomcat && tar xvfz apache-tomcat-9.0.27.tar.gz
 EXPOSE 8080
+CMD systemctl start docker
 CMD /opt/tomcat/bin/sh.startup.sh
