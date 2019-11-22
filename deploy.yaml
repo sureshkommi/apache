@@ -36,6 +36,7 @@ metadata:
     # by default the type is elb (classic load balancer).
     service.beta.kubernetes.io/aws-load-balancer-type: clb 
 spec:
+  externalTrafficPolicy: Local
   type: LoadBalance      
   selector:
     app: tomcat
