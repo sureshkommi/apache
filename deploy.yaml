@@ -1,8 +1,8 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
- name: tomcat1
- namespace: abcd
+  name: tomcat1
+  namespace: abcd
 spec:
   replicas: 1
   selector:
