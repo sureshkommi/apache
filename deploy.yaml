@@ -31,11 +31,15 @@ kind: Service
 metadata:
   name: service
   namespce: tomcat
-
 spec:
+  type: LoadBalance      
   selector:
     app: tomcat
-ports:
-    -protocol: TCP
-	port: 80
-      targetPort: 9376 
+  ports:
+    - name: http
+      port: 80
+      targetPort: http
+    - name: https
+      port: 443
+      targetport: https
+    
