@@ -8,6 +8,7 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   namespace: tomcat
+  name: tomcat1
 spec:
   selector:
     matchLabels:
