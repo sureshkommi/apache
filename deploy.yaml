@@ -36,5 +36,6 @@ spec:
   selector:
     app: tomcat
 ports:
-    - port: 8080
-      type: LoadBalancer
+    -protocol: TCP
+	port: 80
+      targetPort: 9376 
