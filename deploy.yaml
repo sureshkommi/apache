@@ -3,10 +3,10 @@ kind: Namespace
 metadata:
   name: tomcat
 
+
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: my-tomcat
   namespace: tomcat
 spec:
   replicas: 1
