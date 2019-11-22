@@ -31,6 +31,10 @@ kind: Service
 metadata:
   name: service
   namespce: tomcat
+  labels:
+  annotations:
+    # by default the type is elb (classic load balancer).
+    service.beta.kubernetes.io/aws-load-balancer-type: clb 
 spec:
   type: LoadBalance      
   selector:
