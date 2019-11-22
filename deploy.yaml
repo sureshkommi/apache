@@ -24,3 +24,17 @@ spec:
         image: 811636332895.dkr.ecr.ap-southeast-1.amazonaws.com/tomcat
         ports:
         - containerPort: 80
+---
+
+apiVersion: apps/V1
+kind: service
+metadata:
+  name: service
+  namespce: tomcat
+
+spec:
+  selector:
+    app: tomcat
+ports:
+    - port: 5678
+      type: LoadBalancer
