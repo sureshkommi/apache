@@ -8,7 +8,7 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   namespace: tomcat
-  name: tomcat1
+  name: my-tomcat
 spec:
   selector:
     matchLabels:
@@ -29,7 +29,7 @@ spec:
 apiVersion: v1
 kind: Service
 metadata:
-  name: service
+  name: svc
   namespce: tomcat
   labels:
   annotations:
@@ -37,7 +37,7 @@ metadata:
     service.beta.kubernetes.io/aws-load-balancer-type: clb 
 spec:
   externalTrafficPolicy: Local
-  type: LoadBalance      
+  type: LoadBalancer      
   selector:
     app: tomcat
   ports:
