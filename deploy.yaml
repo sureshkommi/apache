@@ -2,9 +2,7 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
  name: tomcat1
- namespace: tomcat1
- labels:
-   app: tomcat
+ namespace: suresh
 spec:
   replicas: 1
   selector:
@@ -16,7 +14,7 @@ spec:
         app: tomcat
     spec:
       containers:
-      - name: tomcat1
+      - name: tomcat
         image: 811636332895.dkr.ecr.ap-southeast-1.amazonaws.com/tomcat
         ports:
         - containerPort: 80
