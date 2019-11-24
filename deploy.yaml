@@ -30,21 +30,27 @@ apiVersion: v1
 kind: Service
 metadata:
   name: svc
-  namespace: tomcat
-  labels:
-  annotations:
-    # by default the type is elb (classic load balancer).
-    service.beta.kubernetes.io/aws-load-balancer-type: clb 
-spec:
-  externalTrafficPolicy: Local
-  type: LoadBalancer      
+  namespace: tomcat 
+spec:      
   selector:
     app: tomcat
   ports:
-    - name: http
+    - name: tomcat
       port: 80
-      targetPort: http
-    - name: https
-      port: 443
-      targetport: https
-    
+---
+
+apiVersion: extensions/v1beta1
+kind: Ingress
+metadata:
+  name: example-ingress
+  namespace: tomcat
+  annotations:
+    ingress.kubernetes.io/rewrite-target: /
+spec:
+  rules:
+  - http:
+      paths:
+        - path: /tomcat
+          backend:
+            serviceName: svc
+            servicePort: 80
