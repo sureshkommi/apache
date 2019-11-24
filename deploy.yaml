@@ -45,7 +45,7 @@ metadata:
   name: example-ingress
   namespace: tomcat
   annotations:
-    ingress.kubernetes.io/rewrite-target: /
+    ingress.kubernetes.io/rewrite-target: /nlb
 spec:
   rules:
   - http:
