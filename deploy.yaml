@@ -31,8 +31,9 @@ kind: Service
 metadata:
   name: svc
   namespace: tomcat 
+  labels:
   annotations:
-  service.beta.kubernetes.io/aws-load-balancer-type: nlb
+     service.beta.kubernetes.io/aws-load-balancer-type: nlb
 spec:      
   selector:
     app: tomcat
