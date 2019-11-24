@@ -47,7 +47,7 @@ metadata:
   name: example-ingress
   namespace: tomcat
   annotations:
-    service.beta.kubernetes.io/aws-load-balancer-type: alb
+    service.beta.kubernetes.io/aws-load-balancer-type: nlb
     ingress.kubernetes.io/rewrite-target:  
 spec:
   rules:
