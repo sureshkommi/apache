@@ -31,8 +31,8 @@ kind: Service
 metadata:
   name: svc
   namespace: tomcat 
-  #annotations:
-  #service.beta.kubernetes.io/aws-load-balancer-type: alb
+  annotations:
+  service.beta.kubernetes.io/aws-load-balancer-type: nlb
 spec:      
   selector:
     app: tomcat
@@ -47,8 +47,7 @@ metadata:
   name: example-ingress
   namespace: tomcat
   annotations:
-    service.beta.kubernetes.io/aws-load-balancer-type: nlb
-    ingress.kubernetes.io/rewrite-target:  
+    ingress.kubernetes.io/rewrite-target: / 
 spec:
   rules:
   - http:
