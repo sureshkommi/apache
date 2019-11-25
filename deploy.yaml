@@ -39,7 +39,7 @@ spec:
     app: tomcat
   ports:
     - name: tomcat
-      port: 8085
+      port: 8090
       
 ---
 
@@ -57,4 +57,4 @@ spec:
         - path: /tomcat
           backend:
             serviceName: svc
-            servicePort: 8085
+            servicePort: 8090
