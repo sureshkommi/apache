@@ -25,7 +25,7 @@ spec:
         ports:
           - containerPort: 8090
       imagepullSecrets:
-      - name: srihari        
+      - name: regcred         
 ---
 
 apiVersion: v1
