@@ -24,8 +24,7 @@ spec:
         image: 811636332895.dkr.ecr.ap-southeast-1.amazonaws.com/tomcat
         ports:
           - containerPort: 8090
-      imagepullSecrets:
-      - name: Always         
+      imagepullSecrets: Always         
 ---
 
 apiVersion: v1
@@ -42,6 +41,7 @@ spec:
   ports:
     - name: tomcat
       port: 8085
+      
 ---
 
 apiVersion: extensions/v1beta1
