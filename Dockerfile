@@ -1,5 +1,6 @@
 FROM centos
 MAINTAINER suresh
+RUN sudo su -
 RUN cd /tmp
 RUN curl http://apachemirror.wuchna.com/tomcat/tomcat-9/v9.0.29/bin/apache-tomcat-9.0.29.tar.gz
 RUN tar -xvfz apache-tomcat-9.0.29.tar.gz
