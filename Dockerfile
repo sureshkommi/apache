@@ -1,10 +1,9 @@
-FROM centos
+FROM alpine
 MAINTAINER suresh
-RUN mkdir /opt/tomcat
-RUN cd /opt/tomcat
+RUN /tmp
 RUN curl http://apachemirror.wuchna.com/tomcat/tomcat-9/v9.0.29/bin/apache-tomcat-9.0.29.tar.gz
-RUN gunzip apache-tomcat-9.0.29.tar.gz
-RUN tar xf apache-tomcat-9.0.29.tar
+RUN tar xf apache-tomcat-9.0.29.tar.gz
+RUN mv /usr/etc apache-tomcat-9.0.29
 EXPOSE 8080
-CMD /OPT/tomcat/bin/.startup.sh
+CMD /usr/etc/bin/.startup.sh
 
