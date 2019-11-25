@@ -1,4 +1,4 @@
-FROM centos
+FROM alpine
 MAINTAINER suresh
 RUN mkdir /opt/tomcat
 RUN cd /opt/tomcat
