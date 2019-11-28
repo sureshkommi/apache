@@ -22,6 +22,8 @@ spec:
       containers:
       - name: tomcat
         image: 811636332895.dkr.ecr.ap-southeast-1.amazonaws.com/tomcat
+      imagePullSecrets:
+      - name: ${ap-southeast-1}-ecr-registry
         ports:
           - containerPort: 8090         
 ---
@@ -38,7 +40,7 @@ metadata:
      app.kubernetes.io/part-of: ingress-nginx
 spec:
   externalTrafficPolicy: Local
-  type: ALB
+  type: nlb
   selector:
     app: tomcat
   ports:
@@ -60,4 +62,4 @@ spec:
         - path: /tomcat
           backend:
             serviceName: svc
-            servicePort: 8090
+            servicePort: 809i0
